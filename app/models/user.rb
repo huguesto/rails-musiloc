@@ -8,8 +8,5 @@ class User < ApplicationRecord
 
   has_many :instrument_bookings, through: :instruments, source: :bookings
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :location, presence: true
-  validates :phone_number, presence: true, uniqueness: true
+
 end
