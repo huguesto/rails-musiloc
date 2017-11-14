@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :set_booking, only: :destroy
   before_action :set_instrument, only: :create
 
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:instrument_id, :user_id)
+    params.require(:booking).permit(:instrument_id, :user_id, :date_start, :date_end)
   end
 end
 
