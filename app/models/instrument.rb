@@ -1,5 +1,5 @@
 class Instrument < ApplicationRecord
-  CATEGORIES = ["Vent", "Corde", "Percussion", "Electronique"]
+  CATEGORIES = ["Wind", "String", "Percussion", "Electronic"]
 
   belongs_to :user
   has_many :bookings
