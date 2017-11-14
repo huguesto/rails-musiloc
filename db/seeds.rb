@@ -32,7 +32,7 @@ print 'Creating 10 fake instruments...'
   instrument = Instrument.new(
     name: Faker::Music.instrument,
     description: Faker::Lorem.sentence,
-    category: Faker::Lorem.word,
+    category: Instrument::CATEGORIES.sample,
     hourly_price: Faker::Number.decimal(2),
     user: User.order("RANDOM()").first
   )
