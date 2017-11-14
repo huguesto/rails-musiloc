@@ -2,10 +2,23 @@
   font-size: 15px;
   background-color: rgb(0, 93, 255);
   border: none;
+  padding: 10px;
 }
 
 .btn:hover {
   font-size: 15px;
   background-color: rgb(34, 31, 239);
   border: none;
+}
+
+.btn-sign-fb {
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  margin-left: 18%;
+}
+
+.btn-sign-up {
+  margin-left: 33%;
+  padding: 10px;
 }
