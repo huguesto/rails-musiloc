@@ -28,11 +28,11 @@ puts " done"
 
 print 'Creating 10 fake instruments...'
 10.times do
-  print ["🥁 " ,"🎷 ", "🎺 ", "🎹 ", "🎸 ", "🎻 "].sample
+  print ["🥁 " ,"🎷 ", "🎺 ", "🎹 ", "🎸 ", "🎻 ", "🎻 "].sample
   instrument = Instrument.new(
     name: Faker::Music.instrument,
     description: Faker::Lorem.sentence,
-    category: Faker::Lorem.word,
+    category: Instrument::CATEGORIES.sample,
     hourly_price: Faker::Number.decimal(2),
     user: User.order("RANDOM()").first
   )
@@ -48,7 +48,9 @@ print 'Creating 10 fake bookings...'
     review: Faker::Lorem.sentences,
     rating: Faker::Number.between(1, 5),
     user: User.order("RANDOM()").first,
-    instrument: Instrument.order("RANDOM()").first
+    instrument: Instrument.order("RANDOM()").first,
+    date_start: Faker::Date.backward(14),
+    date_end: Faker::Date.forward(23)
   )
 
   booking.save!
