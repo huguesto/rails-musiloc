@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :set_review, only: [:edit]
+  before_action :set_review, only: [:edit, :update]
 
   def edit
   end
