@@ -1,10 +1,9 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: :destroy
   before_action :set_instrument, only: :create
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def create
@@ -17,16 +16,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
-    @booking.destroy
-    redirect_to bookings_path
-  end
-
   private
-
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
 
   def set_instrument
     @instrument = Instrument.find(params[:instrument_id])
