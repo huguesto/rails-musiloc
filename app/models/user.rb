@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   # validates :location, presence: true
   validates :phone_number, presence: true, uniqueness: true
+
 end
