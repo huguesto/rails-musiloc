@@ -34,7 +34,7 @@ print 'Creating 10 fake instruments...'
     description: Faker::Lorem.sentence,
     category: Instrument::CATEGORIES.sample,
     hourly_price: Faker::Number.decimal(2),
-    user: User.order("RANDOM()").first
+    user: User.order("RANDOM()").first,
   )
   instrument.save!
 end
