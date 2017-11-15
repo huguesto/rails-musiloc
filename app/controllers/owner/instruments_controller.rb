@@ -15,7 +15,7 @@ class Owner::InstrumentsController < ApplicationController
   def create
     @instrument = Instrument.new(instrument_params)
     if @instrument.save
-      redirect_to owner_instrument_path(@instrument)
+      redirect_to instrument_path(@instrument)
     else
       render :new
     end
