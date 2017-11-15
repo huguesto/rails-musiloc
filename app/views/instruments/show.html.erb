@@ -16,5 +16,7 @@
       <h2>Rent price <%= @instrument.hourly_price %> €/h</h2>
     </div>
   </div>
+  <div class="btn-back">
+    <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
+  </div>
 </div>
-
