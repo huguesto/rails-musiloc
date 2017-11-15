@@ -15,8 +15,13 @@
         <%= @instrument.description %>
       </p>
     </div>
-    <div class="instrument-price">
-      <h2>Rent price <%= @instrument.hourly_price %> €/h</h2>
+    <div class="instrument-booking">
+      <div class="instrument-price">
+        <h2>Rent price <%= @instrument.hourly_price %> €/h</h2>
+      </div>
+      <div>
+        <%= render 'bookings/form' %>
+      </div>
     </div>
   </div>
   <div class="btn-back">

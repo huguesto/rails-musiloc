@@ -1,0 +1,8 @@
+<div class="form-booking">
+    <p>Book the instrument</p>
+    <%= simple_form_for [@instrument, @booking] do |f| %>
+      <%= f.input :date_start, label: "Start" %>
+      <%= f.input :date_end, label: "End" %>
+      <%= f.submit 'Book', class: 'btn btn-primary' %>
+    <% end %>
+</div>
