@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky; /* Set the navbar to fixed position */
+  top: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .navbar-home {
@@ -59,7 +63,7 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #005dff;
   text-decoration: none;
 }
 
@@ -93,3 +97,4 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
