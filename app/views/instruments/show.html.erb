@@ -2,5 +2,21 @@
   <% content_for :name do %>
   <%= @instrument.name %>
   <% end %>
-  <h2>@instrument.name</h2>
+  <div class="instrument-description">
+    <div class="instrument-details">
+      <h2><%= @instrument.name %></h2>
+      <h4>Category : <%= @instrument.category %></h4>
+      <p>
+        Description :
+        <br>
+        <%= @instrument.description %>
+      </p>
+    </div>
+    <div class="instrument-price">
+      <h2>Rent price <%= @instrument.hourly_price %> €/h</h2>
+    </div>
+  </div>
+  <div class="btn-back">
+    <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
+  </div>
 </div>

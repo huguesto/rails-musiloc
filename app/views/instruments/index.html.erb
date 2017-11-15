@@ -6,19 +6,20 @@
     <% @instruments.each do |instrument| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
-
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.fnacspectacles.com/static/0/visuel/300/365/SALLE-PLEYEL_3658025273903222756__1.jpg?1499677161000');">
-            <div class="card-category"><%= instrument.category %></div>
-            <div class="card-description">
-              <h2><% instrument.name %><%= link_to instrument.name, instrument_path(instrument) %></h2>
-              <p><%= instrument.hourly_price %> €/hour</p>
+          <%= link_to instrument_path(instrument) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.fnacspectacles.com/static/0/visuel/300/365/SALLE-PLEYEL_3658025273903222756__1.jpg?1499677161000');">
+              <div class="card-category"><%= instrument.category %></div>
+              <div class="card-description">
+                <h2><%= instrument.name %></h2>
+                <p><%= instrument.hourly_price %> €/hour</p>
+              </div>
+              <img class="card-user" src="">
             </div>
-            <img class="card-user" src="">
-            <a class="card-link" href="#" ></a>
-          </div>
-
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
