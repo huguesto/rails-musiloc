@@ -13,6 +13,7 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   private
