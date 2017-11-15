@@ -16,7 +16,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Rent my instrument", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%#= link_to "Rent my instrument", new_owner_instrument_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -27,11 +27,6 @@
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
             <li>
@@ -63,11 +58,6 @@
         <li>
           <%= link_to "#" do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
           <% end %>
         </li>
         <li>

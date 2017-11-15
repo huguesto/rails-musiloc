@@ -9,6 +9,7 @@ class Owner::InstrumentsController < ApplicationController
   end
 
   def new
+    @owner = current_user
     @instrument = Instrument.new
   end
 
@@ -46,7 +47,7 @@ class Owner::InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:name, :category, :description, :hourly_price, :user_id)
+    params.require(:instrument).permit(:name, :category, :description, :hourly_price, :user_id, :photo)
   end
 end
 
