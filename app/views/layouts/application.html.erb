@@ -11,8 +11,10 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'navbar/navbar' %>
+
+    <%= render (current_page?("/") ? "navbar/navbar-home" : "navbar/navbar") %>
     <%= render 'navbar/flashes' %>
+
     <%= yield %>
     
     <!-- <%= render 'footer/footer' %> -->
