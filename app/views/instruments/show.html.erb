@@ -6,6 +6,9 @@
     <div class="instrument-details">
       <h2><%= @instrument.name %></h2>
       <h4>Category : <%= @instrument.category %></h4>
+      <% if @instrument.photo? %>
+        <%= cl_image_tag @instrument.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
       <p>
         Description :
         <br>
