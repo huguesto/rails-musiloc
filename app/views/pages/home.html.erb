@@ -1,24 +1,13 @@
-<h1 class="text-center">Instruments</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,40,168,0.6) 0%, rgba(0,30,61,0.6) 50%), url('http://longwallpapers.com/Desktop-Wallpaper/guitar-wallpapers-hd-resolution-For-Desktop-Wallpaper.jpg');">
+  <div class="banner-content">
+    <div class="navbar-center">
 
-<div class="container">
-  <div class="row">
-    <% @instruments = Instrument.all %>
-    <% @instruments.each do |instrument| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card text-center">
-
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.fnacspectacles.com/static/0/visuel/300/365/SALLE-PLEYEL_3658025273903222756__1.jpg?1499677161000');">
-            <div class="card-category"><%= instrument.category %></div>
-            <div class="card-description">
-              <h2><% instrument.name %><%= link_to instrument.name, instrument_path(instrument) %></h2>
-              <p><%= instrument.hourly_price %> €/hour</p>
-            </div>
-            <img class="card-user" src="">
-            <a class="card-link" href="#" ></a>
-          </div>
-
-        </div>
-      </div>
-    <% end %>
+    </div>
+    <h1>Welcome</h1>
+    <p>
+      Rent your instrument
+    </p>
+    <%= link_to "Find an instrument", new_owner_instrument_path, class: "btn btn-primary btn-lg"%>
+    <%= link_to "Rent my instrument", new_owner_instrument_path, class: "btn btn-primary btn-lg"%>
   </div>
 </div>
