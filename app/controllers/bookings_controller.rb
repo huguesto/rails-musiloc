@@ -25,5 +25,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:instrument_id, :user_id, :date_start, :date_end)
   end
 end
-
-
