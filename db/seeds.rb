@@ -33,7 +33,7 @@ print 'Creating 10 fake instruments...'
     name: Faker::Music.instrument,
     description: Faker::Lorem.sentence,
     category: Instrument::CATEGORIES.sample,
-    hourly_price: Faker::Number.decimal(2),
+    daily_price: Faker::Number.decimal(2),
     user: User.order("RANDOM()").first,
     address: "Le Wagon, Bordeaux"
   )
