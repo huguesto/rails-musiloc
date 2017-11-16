@@ -9,6 +9,6 @@ class Instrument < ApplicationRecord
 
   validates :name, presence: true
   validates :category, inclusion: { in: CATEGORIES }
-  validates :hourly_price, presence: true
+  validates :daily_price, presence: true
   validates :address, presence: true
 end
