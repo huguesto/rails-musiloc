@@ -1,8 +1,19 @@
 <div class="form-booking">
-    <p>Book the instrument</p>
+  <p>Rent the instrument</p>
     <%= simple_form_for [@instrument, @booking] do |f| %>
-      <%= f.input :date_start, label: "Start" %>
-      <%= f.input :date_end, label: "End" %>
-      <%= f.submit 'Book', class: 'btn btn-primary' %>
+      <div class="booking-form-inputs">
+        <div class="input-start">
+          <%= f.input :date_start, label: "From", as: :string, input_html: { data: { provide: 'datepicker' } } %>
+        </div>
+        <div class="input-end">
+          <%= f.input :date_end, label: "To", as: :string, input_html: { data: { provide: 'datepicker' }  } %>
+        </div>
+      </div>
+      <div class="total-booking">
+        <h4>Total : ??</h4>
+      </div>
+      <div class="center-btn">
+        <%= f.submit 'Rent', class: 'btn btn-primary' %>
+      </div>
     <% end %>
 </div>

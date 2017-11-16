@@ -12,3 +12,17 @@
   // background-color: white;
   padding-top: 20px;
 }
+
+
+.form-booking {
+  width: 300px;
+}
+
+.booking-form-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-start, .input-end {
+  width: 140px;
+}
