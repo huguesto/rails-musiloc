@@ -22,5 +22,3 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.find(params[:id])
   end
 end
-
-

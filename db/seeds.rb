@@ -35,6 +35,7 @@ print 'Creating 10 fake instruments...'
     category: Instrument::CATEGORIES.sample,
     hourly_price: Faker::Number.decimal(2),
     user: User.order("RANDOM()").first,
+    address: "Le Wagon, Bordeaux"
   )
   instrument.save!
 end
