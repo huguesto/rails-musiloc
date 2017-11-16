@@ -29,7 +29,7 @@ class Owner::InstrumentsController < ApplicationController
   def update
     @instrument.update(instrument_params)
     if @instrument.save
-      redirect_to owner_instrument_path(@instrument)
+      redirect_to instrument_path(@instrument)
     else
       render :edit
     end
@@ -37,7 +37,6 @@ class Owner::InstrumentsController < ApplicationController
 
   def destroy
     @instrument.destroy
-    # no need for app/views/instruments/destroy.html.erb
     redirect_to owner_instruments_path
   end
 
