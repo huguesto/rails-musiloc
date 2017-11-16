@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_instrument, only: :create
+  before_action :set_instrument, only: [:create]
 
   def index
     @bookings = current_user.bookings
@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.instrument = @instrument
     if @booking.save
       redirect_to bookings_path(@booking)
     else
@@ -26,5 +25,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:instrument_id, :user_id, :date_start, :date_end)
   end
 end
-
-
