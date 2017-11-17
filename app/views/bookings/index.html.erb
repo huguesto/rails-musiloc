@@ -1,14 +1,11 @@
 <h1 class="text-center">My Bookings</h1>
 
-  <% @bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <div class="message">
     <% if booking.instrument.photo? %>
       <%= cl_image_tag booking.instrument.photo.path, width: 200, height: 300, crop: :fill %>
     <% else %>
-    <%= cl_image_tag("",
-                 :width => 100, :height => 100,
-                 :crop => :thumb, :gravity => :face, :radius => 20,
-                 :default_image => "avatar.png") %>
+      <%= image_tag("http://jakesmainstreetmusic.com/gfx/freeTextImage/placeholder.png") %>
     <% end %>
     <div class="category-frame">
       <p><strong><%= booking.instrument.category %></strong></p>
@@ -17,20 +14,33 @@
     <div class="message-body">
       <p><strong><%= booking.instrument.name %></strong></p>
       <p><%= booking.instrument.description %></p>
+
+      <!-- COPIE COLLE DU COURS DE CE MATIN -->
+      <div id="reviews">
+        <% if booking.review.blank? %>
+          Leave a review for this booking
+        <% else %>
+          <strong>Your review:</strong>
+          <%= booking.review %>
+
+          <%= "⭐️" * booking.rating %>
+        <% end %>
+      </div>
+
+
       <p>From <%= booking.date_start.strftime('%a %d %b %Y') %> to <%= booking.date_end.strftime('%a %d %b %Y') %>.</p>
     </div>
     <div class="message-status">
       <p class="status pending">Pending confirmation</p>
       <p> TOTAL PRICE </p>
+
       <p>
         <% @instrument = booking.instrument %>
         <%= (@nbday * @instrument.daily_price) %> €
       </p>
     </div>
+    <% if booking.review.blank? %>
+      <div> <%= render 'reviews/form', booking: booking %> </div>
+    <% end %>
   </div>
 <% end %>
-
-
-
-
-
