@@ -17,15 +17,25 @@
     <div class="message-body">
       <p><strong><%= booking.instrument.name %></strong></p>
       <p><%= booking.instrument.description %></p>
+
+      <!-- COPIE COLLE DU COURS DE CE MATIN -->
+      <div id="reviews">
+        <% if booking.review.blank? %>
+          Leave a review for this booking
+        <% else %>
+          <strong>Your review:</strong>
+          <%= booking.review %>
+        <% end %>
+      </div>
+
     </div>
     <div class="message-status">
       <p class="status pending">Pending confirmation</p>
       <p> TOTAL PRICE </p>
+
     </div>
+    <% if booking.review.blank? %>
+      <div> <%= render 'reviews/form', booking: booking %> </div>
+    <% end %>
   </div>
 <% end %>
-
-
-
-
-

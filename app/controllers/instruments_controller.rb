@@ -9,6 +9,7 @@ class InstrumentsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@instruments) do |instrument, marker|
       marker.lat instrument.latitude
       marker.lng instrument.longitude
+      marker.infowindow render_to_string(partial: "/instruments/map_box", locals: { instrument: instrument })
     end
   end
 

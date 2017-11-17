@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20171116144500) do
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "instrument_id"
-    t.text     "review"
     t.integer  "rating"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.date     "date_start"
     t.date     "date_end"
+    t.string   "review"
     t.index ["instrument_id"], name: "index_bookings_on_instrument_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
