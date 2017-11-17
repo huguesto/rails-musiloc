@@ -34,7 +34,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Rent my instrument", new_owner_instrument_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Rent my instrument", new_owner_instrument_path, class: "navbar-wagon-item navbar-wagon-link btn-rent-my-instrument" %>
       <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "btn btn-primary" %>
     <% end %>
