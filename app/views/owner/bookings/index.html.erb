@@ -1,5 +1,5 @@
 <%= render 'navbar/profile_navbar' %>
-<h1 class="text-center">My Instruments Bookings</h1>
+<h1 class="text-center page-title">MY INSTRUMENTS BOOKINGS</h1>
 
 <% @owner_bookings.each do |owner_b| %>
   <div class="message">
@@ -12,8 +12,8 @@
                  :default_image => "avatar.png") %>
     <% end %>
 
-    <div class="category-frame">
-      <p> RENT INFOS </p>
+    <div class="category-frame text-center">
+      <p><strong>RENT INFOS</strong></p>
       <p>
         <% @instrument = owner_b.instrument %>
         <% @nbday = (owner_b.date_end - owner_b.date_start).to_i %>
@@ -23,7 +23,7 @@
     </div>
     <div class="message-body">
       <p><strong><%= owner_b.instrument.name %></strong> - <%= owner_b.instrument.category %></p>
-      <p><strong><%= owner_b.user.first_name %> <%= owner_b.user.last_name %></strong></p>
+      <p><strong>Rent by : </strong><%= owner_b.user.first_name %> <%= owner_b.user.last_name %></p>
       <p>From <%= owner_b.date_start.strftime('%a %d %b %Y') %> to <%= owner_b.date_end.strftime('%a %d %b %Y') %>.</p>
     </div>
   </div>

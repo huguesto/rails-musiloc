@@ -1,6 +1,6 @@
 <%= render 'navbar/profile_navbar' %>
 
-<h1 class="text-center">My Bookings</h1>
+<h1 class="text-center page-title">MY BOOKINGS</h1>
 
 <% @bookings.each do |booking| %>
 <div class="container-message">
@@ -18,6 +18,7 @@
     </div>
     <div class="message-body">
       <p><strong>Name : </strong><%= booking.instrument.name %></p>
+      <p><strong>Owner : </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
       <p><strong>Description : </strong><%= booking.instrument.description %></p>
       <p><strong>Duration : </strong>From <%= booking.date_start.strftime('%a %d %b %Y') %> to <%= booking.date_end.strftime('%a %d %b %Y') %>.</p>
 
