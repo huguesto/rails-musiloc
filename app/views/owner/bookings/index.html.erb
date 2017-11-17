@@ -1,0 +1,30 @@
+<h1 class="text-center">My Instruments Bookings</h1>
+
+<% @owner_bookings.each do |owner_b| %>
+  <div class="message">
+    <% if owner_b.instrument.photo? %>
+      <%= cl_image_tag owner_b.instrument.photo.path, width: 70, height: 70, crop: :fill %>
+    <% else %>
+    <%= cl_image_tag("",
+                 :width => 100, :height => 100,
+                 :crop => :thumb, :gravity => :face, :radius => 20,
+                 :default_image => "avatar.png") %>
+    <% end %>
+
+    <div class="category-frame">
+      <p> RENT INFOS </p>
+      <p>
+        <% @instrument = owner_b.instrument %>
+        <% @nbday = (owner_b.date_end - owner_b.date_start).to_i %>
+        <%= (@nbday * @instrument.daily_price) %> €
+      </p>
+      <p><%= @nbday %> rent days</p>
+    </div>
+    <div class="message-body">
+      <p><strong><%= owner_b.instrument.name %></strong> - <%= owner_b.instrument.category %></p>
+      <p><strong><%= owner_b.user.first_name %> <%= owner_b.user.last_name %></strong></p>
+      <p>From <%= owner_b.date_start.strftime('%a %d %b %Y') %> to <%= owner_b.date_end.strftime('%a %d %b %Y') %>.</p>
+    </div>
+  </div>
+<% end %>
+
