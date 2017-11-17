@@ -1,24 +1,57 @@
-<div class="container">
-  <% content_for :name do %>
-  <%= @instrument.name %>
-  <% end %>
-  <div class="instrument-description">
-    <div class="instrument-details">
-      <h2><%= @instrument.name %></h2>
-      <h4>Category : <%= @instrument.category %></h4>
-      <% if @instrument.photo? %>
+
+<h1 class="text-center"><%= @instrument.name %></h1>
+
+<div class="instrument-container">
+
+  <div class="column-1">
+    <div class="instrument-picture">
+       <% if @instrument.photo? %>
         <%= cl_image_tag @instrument.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
+    </div>
+    <h4 class="category-style">Category : <%= @instrument.category %></h4>
+  </div>
+
+  <div class="column-2">
+    <p>
+      Description :
+      <br>
+      <%= @instrument.description %>
+    </p>
+    <div class="btns-instrument">
+      <% if current_user == @instrument.user %>
+        <div class="btn-edit">
+          <%= link_to "Edit", edit_owner_instrument_path(@instrument), class: "btn btn-primary" %>
+        </div>
+        <div class="btn-delete">
+          <%= link_to "Delete", owner_instrument_path(@instrument), method: :delete, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="column-3">
+    <p>Address : <%= @instrument.address %></p>
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=400x300&sensor=false&maptype=roadmap&markers=color:blue|#{@instrument.address}&key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
+  </div>
+</div>
+
+
+
+
+
+  <!-- <div class="instrument-description">
+    <div class="instrument-details">
+      <h4 class="category-style">Category : <%= @instrument.category %></h4>
+
       <p>
         Description :
         <br>
         <%= @instrument.description %>
       </p>
       <p>Address : <%= @instrument.address %></p>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=400x300&sensor=false&maptype=roadmap&markers=color:blue|#{@instrument.address}&key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
       <div class="btns-instrument">
-        <div class="btn-back">
-          <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
-        </div>
         <% if current_user == @instrument.user %>
           <div class="btn-edit">
             <%= link_to "Edit", edit_owner_instrument_path(@instrument), class: "btn btn-primary" %>
@@ -40,4 +73,8 @@
       </div>
     <% end %>
   </div>
+</div> -->
+
+<div class="btns-instrument btn-back">
+  <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
 </div>
