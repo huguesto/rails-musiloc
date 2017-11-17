@@ -1,8 +1,7 @@
-<div class="form-review">
-  <p>Add a review</p>
     <%= simple_form_for booking do |f| %>
+    <%= f.input :rating %>
       <%= f.input :review %>
-      <%= f.input :rating %>
-      <%= f.submit 'Post', class: 'btn btn-primary' %>
+      <div class="btn-post">
+        <%= f.submit 'Post', class: 'btn btn-primary btn-post' %>
+      </div>
     <% end %>
-</div>
