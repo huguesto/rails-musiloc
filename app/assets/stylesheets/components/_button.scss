@@ -28,3 +28,22 @@
 .btn-white {
   color: white;
 }
+
+.add-review {
+  margin-left: 85%;
+  background-color: #1d18f5;
+}
+.add-review:hover {
+  background-color: #1d18f5;
+}
+.btn-post {
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+
+}
+
+.btn btn-primary btn-post {
+    background-color: #1d18f5;
+}
