@@ -2,21 +2,20 @@ class Owner::InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
 
   def index
-    @instruments = Instrument.all
+    @instruments = current_user.instruments
   end
 
   def show
   end
 
   def new
-    @owner = current_user
     @instrument = Instrument.new
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
+    @instrument.user = current_user
     if @instrument.save
-
       redirect_to instrument_path(@instrument)
     else
       render :new
@@ -29,7 +28,7 @@ class Owner::InstrumentsController < ApplicationController
   def update
     @instrument.update(instrument_params)
     if @instrument.save
-      redirect_to owner_instrument_path(@instrument)
+      redirect_to instrument_path(@instrument)
     else
       render :edit
     end
@@ -37,7 +36,6 @@ class Owner::InstrumentsController < ApplicationController
 
   def destroy
     @instrument.destroy
-    # no need for app/views/instruments/destroy.html.erb
     redirect_to owner_instruments_path
   end
 

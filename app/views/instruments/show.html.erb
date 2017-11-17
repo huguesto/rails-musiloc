@@ -15,17 +15,29 @@
         <%= @instrument.description %>
       </p>
       <p>Address : <%= @instrument.address %></p>
-    </div>
-    <div class="instrument-booking">
-      <div class="instrument-price">
-        <h3>Rent price <%= @instrument.daily_price %> €/day</h3>
+      <div class="btns-instrument">
+        <div class="btn-back">
+          <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
+        </div>
+        <% if current_user == @instrument.user %>
+          <div class="btn-edit">
+            <%= link_to "Edit", edit_owner_instrument_path(@instrument), class: "btn btn-primary" %>
+          </div>
+          <div class="btn-delete">
+            <%= link_to "Delete", owner_instrument_path(@instrument), method: :delete, class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
-      <div>
-        <%= render 'bookings/form' %>
-      </div>
     </div>
-  </div>
-  <div class="btn-back">
-    <%= link_to "Back to list", instruments_path, class: "btn btn-primary" %>
+    <% if current_user != @instrument.user %>
+      <div class="instrument-booking">
+        <div class="instrument-price">
+          <h3>Rent price <%= @instrument.daily_price %> €/day</h3>
+        </div>
+        <div>
+          <%= render 'bookings/form' %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

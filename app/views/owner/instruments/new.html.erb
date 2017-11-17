@@ -1,32 +1,4 @@
 <div class="container">
-  <div class="form-instrument">
-    <h4 class="text-center">Add your instrument to rent !</h4>
-    <%= simple_form_for [:owner, @instrument] do |f| %>
-      <div class="form-inputs">
-        <div class="col-md-4 col-md-offset-4">
-          <%= f.input :name, placeholder: "e.g. : Guitare Fender Standard Strat", label: "Instrument name"%>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-          <%= f.input :category, collection: ["Wind", "String", "Percussion", "Electronic"], prompt: "Select the right category" %>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-          <%= f.input :description, placeholder: "Add your description", as: :text %>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-           <%= f.input :hourly_price, label: "Hourly price (€)" %>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-          <%= f.input :address %>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-           <%= f.input :photo, label: "Instrument photo", as: :attachinary %>
-        </div>
-        <div class="col-md-4 col-md-offset-4 center-btn">
-          <div class="form-actions">
-            <%= f.submit 'Rent your instrument', class: 'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <h4 class="text-center">Add your instrument to rent !</h4>
+  <%= render 'form' %>
 </div>

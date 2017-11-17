@@ -12,7 +12,7 @@
     <% end %>
     <div class="category-frame">
       <p><strong><%= booking.instrument.category %></strong></p>
-      <p><%= (booking.date_end - booking.date_start).to_i %> rent days</p>
+      <p><%= @nbday = (booking.date_end - booking.date_start).to_i %> rent days</p>
     </div>
     <div class="message-body">
       <p><strong><%= booking.instrument.name %></strong></p>
@@ -28,11 +28,17 @@
         <% end %>
       </div>
 
+
+      <p>From <%= booking.date_start.strftime('%a %d %b %Y') %> to <%= booking.date_end.strftime('%a %d %b %Y') %>.</p>
     </div>
     <div class="message-status">
       <p class="status pending">Pending confirmation</p>
       <p> TOTAL PRICE </p>
 
+      <p>
+        <% @instrument = booking.instrument %>
+        <%= (@nbday * @instrument.daily_price) %> €
+      </p>
     </div>
     <% if booking.review.blank? %>
       <div> <%= render 'reviews/form', booking: booking %> </div>
