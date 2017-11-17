@@ -10,7 +10,7 @@
 
 .btns-instrument {
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
 }
 
 .instrument-category {
@@ -32,3 +32,12 @@
   letter-spacing: 2px;
 }
 
+.container-instrument-show {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+}
+
+.instrument-container p {
+  font-size: 14px;
+}
