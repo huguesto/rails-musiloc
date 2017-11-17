@@ -1,4 +1,3 @@
-
 <h1 class="text-center"><%= @instrument.name %></h1>
 
 <div class="instrument-container">
@@ -28,6 +27,8 @@
       <br>
       <%= @instrument.description %>
     </p>
+
+    <%= render 'bookings/form' %>
 
   </div>
 
