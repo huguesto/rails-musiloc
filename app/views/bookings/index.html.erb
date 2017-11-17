@@ -1,46 +1,72 @@
+<%= render 'navbar/profile_navbar' %>
+
 <h1 class="text-center">My Bookings</h1>
 
 <% @bookings.each do |booking| %>
+<div class="container-message">
+
+
   <div class="message">
     <% if booking.instrument.photo? %>
-      <%= cl_image_tag booking.instrument.photo.path, width: 200, height: 300, crop: :fill %>
+      <%= cl_image_tag booking.instrument.photo.path, width: '70', height: '70', crop: :fill %>
     <% else %>
-      <%= image_tag("http://jakesmainstreetmusic.com/gfx/freeTextImage/placeholder.png") %>
+      <%= image_tag("http://jakesmainstreetmusic.com/gfx/freeTextImage/placeholder.png", height: '70', width: '70', crop: :fill) %>
     <% end %>
     <div class="category-frame">
       <p><strong><%= booking.instrument.category %></strong></p>
       <p><%= @nbday = (booking.date_end - booking.date_start).to_i %> rent days</p>
     </div>
     <div class="message-body">
-      <p><strong><%= booking.instrument.name %></strong></p>
-      <p><%= booking.instrument.description %></p>
+      <p><strong>Name : </strong><%= booking.instrument.name %></p>
+      <p><strong>Description : </strong><%= booking.instrument.description %></p>
+      <p><strong>Duration : </strong>From <%= booking.date_start.strftime('%a %d %b %Y') %> to <%= booking.date_end.strftime('%a %d %b %Y') %>.</p>
 
-      <!-- COPIE COLLE DU COURS DE CE MATIN -->
       <div id="reviews">
         <% if booking.review.blank? %>
           Leave a review for this booking
         <% else %>
-          <strong>Your review:</strong>
+          <strong>Your review : </strong>
           <%= booking.review %>
-
-          <%= "⭐️" * booking.rating %>
+          <p>
+            <strong>Note : </strong>
+            <%= "⭐️" * booking.rating %>
+          </p>
         <% end %>
       </div>
 
-
-      <p>From <%= booking.date_start.strftime('%a %d %b %Y') %> to <%= booking.date_end.strftime('%a %d %b %Y') %>.</p>
     </div>
     <div class="message-status">
       <p class="status pending">Pending confirmation</p>
       <p> TOTAL PRICE </p>
-
       <p>
         <% @instrument = booking.instrument %>
         <%= (@nbday * @instrument.daily_price) %> €
       </p>
     </div>
-    <% if booking.review.blank? %>
-      <div> <%= render 'reviews/form', booking: booking %> </div>
-    <% end %>
+</div>
+
+
+
+    <div class="container-rating">
+
+        <% if booking.review.blank? %>
+        <p>
+          <a class="btn btn-primary add-review" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Add a review
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <%= render 'reviews/form', booking: booking %>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+
   </div>
 <% end %>
