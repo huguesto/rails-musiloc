@@ -1,15 +1,19 @@
+<div class="container-instrument-show">
+  <div class="btns-instrument btn-back">
+    <%= link_to "Back to list", instruments_path, class: "btn btn-primary back-to-list" %>
+  </div>
+</div>
 
-<h1 class="text-center page-title"><%= @instrument.name %></h1>
-
+<h1 class="text-center page-title"><%= @instrument.name.upcase %></h1>
 <div class="instrument-container">
-
   <div class="column-1">
     <div class="instrument-picture">
        <% if @instrument.photo? %>
-        <%= cl_image_tag @instrument.photo.path, width: 200, height: 300, crop: :fill %>
+        <%= cl_image_tag @instrument.photo.path, width: 200, height: 200, crop: :fill %>
       <% end %>
     </div>
-    <h4 class="category-style">Category : <%= @instrument.category %></h4>
+    <br>
+    <p class="category-style"><strong>Category :</strong> <%= @instrument.category %></p>
     <div class="btns-instrument">
       <% if current_user == @instrument.user %>
         <div class="btn-edit">
@@ -24,16 +28,15 @@
 
   <div class="column-2">
     <p>
-      Description :
+      <strong>Description :</strong>
       <br>
       <%= @instrument.description %>
     </p>
-
+    <div class="instrument-price">
+          <p><strong>Rent price : </strong><%= @instrument.daily_price %> €/day</p>
+    </div>
     <% if current_user != @instrument.user %>
       <div class="instrument-booking">
-        <div class="instrument-price">
-          <h3>Rent price <%= @instrument.daily_price %> €/day</h3>
-        </div>
         <div>
           <%= render 'bookings/form' %>
         </div>
@@ -43,12 +46,7 @@
   </div>
 
   <div class="column-3">
-    <p>Address : <%= @instrument.address %></p>
+    <p><strong>Address : </strong><%= @instrument.address %></p>
     <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=10&size=400x300&sensor=false&maptype=roadmap&markers=color:blue|#{@instrument.address}&key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
   </div>
-</div>
-
-
-<div class="btns-instrument btn-back">
-  <%= link_to "Back to list", instruments_path, class: "btn btn-primary back-to-list" %>
 </div>
