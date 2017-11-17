@@ -6,3 +6,29 @@
 .instrument-details {
   width: 500px;
 }
+
+
+.btns-instrument {
+  display: flex;
+  justify-content: space-around;
+}
+
+.instrument-category {
+  width: 300px;
+}
+
+.instrument-list-body {
+  width: 700px;
+}
+
+.instruments-list p {
+  font-size: 13px;
+}
+
+.page-title {
+  color: #1d18f5;
+  font-weight: lighter;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
