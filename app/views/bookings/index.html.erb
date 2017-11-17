@@ -1,14 +1,11 @@
 <h1 class="text-center">My Bookings</h1>
 
-  <% @bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <div class="message">
     <% if booking.instrument.photo? %>
       <%= cl_image_tag booking.instrument.photo.path, width: 200, height: 300, crop: :fill %>
     <% else %>
-    <%= cl_image_tag("",
-                 :width => 100, :height => 100,
-                 :crop => :thumb, :gravity => :face, :radius => 20,
-                 :default_image => "avatar.png") %>
+      <%= image_tag("http://jakesmainstreetmusic.com/gfx/freeTextImage/placeholder.png") %>
     <% end %>
     <div class="category-frame">
       <p><strong><%= booking.instrument.category %></strong></p>
@@ -25,6 +22,8 @@
         <% else %>
           <strong>Your review:</strong>
           <%= booking.review %>
+
+          <%= "⭐️" * booking.rating %>
         <% end %>
       </div>
 
