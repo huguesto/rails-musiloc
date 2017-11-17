@@ -20,5 +20,8 @@
       <p><strong>Price : </strong><%= instrument.daily_price %> €/day</p>
       <p><strong>Address : </strong><%= instrument.address %></p>
     </div>
+    <div class="btn-view">
+      <%= link_to "View", instrument_path(instrument), class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
